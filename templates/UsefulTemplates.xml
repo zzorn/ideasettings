@@ -1,0 +1,133 @@
+<templateSet group="UsefulTemplates">
+  <template name="cnn" value="org.flowutils.Check.notNull($PARAM$, &quot;$PARAM$&quot;);&#10;" description="Check not null" toReformat="true" toShortenFQNames="true" useStaticImport="true">
+    <variable name="PARAM" expression="suggestVariableName()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="JAVA_CODE" value="false" />
+      <option name="JAVA_STATEMENT" value="true" />
+      <option name="JAVA_EXPRESSION" value="true" />
+      <option name="JAVA_DECLARATION" value="false" />
+      <option name="JAVA_COMMENT" value="false" />
+      <option name="JAVA_STRING" value="false" />
+      <option name="COMPLETION" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="imp" value="// IMPORTANT: $NAME$&#10;$END$" description="IMPORTANT" toReformat="true" toShortenFQNames="true">
+    <variable name="NAME" expression="methodName()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+      <option name="JAVA_STATEMENT" value="true" />
+      <option name="JAVA_EXPRESSION" value="false" />
+      <option name="JAVA_DECLARATION" value="true" />
+      <option name="JAVA_COMMENT" value="false" />
+      <option name="JAVA_STRING" value="true" />
+      <option name="COMPLETION" value="true" />
+    </context>
+  </template>
+  <template name="todo" value="// TODO: $NAME$&#10;$END$" description="TODO" toReformat="true" toShortenFQNames="true">
+    <variable name="NAME" expression="methodName()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+      <option name="JAVA_STATEMENT" value="true" />
+      <option name="JAVA_EXPRESSION" value="false" />
+      <option name="JAVA_DECLARATION" value="true" />
+      <option name="JAVA_COMMENT" value="false" />
+      <option name="JAVA_STRING" value="true" />
+      <option name="COMPLETION" value="true" />
+    </context>
+  </template>
+  <template name="note" value="// NOTE: $NOTE$&#10;$END$" description="NOTE" toReformat="true" toShortenFQNames="true">
+    <variable name="NOTE" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+      <option name="JAVA_STATEMENT" value="true" />
+      <option name="JAVA_EXPRESSION" value="false" />
+      <option name="JAVA_DECLARATION" value="true" />
+      <option name="JAVA_COMMENT" value="false" />
+      <option name="JAVA_STRING" value="true" />
+      <option name="COMPLETION" value="true" />
+    </context>
+  </template>
+  <template name="later" value="// LATER: $NAME$&#10;$END$" description="LATER" toReformat="true" toShortenFQNames="true">
+    <variable name="NAME" expression="methodName()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+      <option name="JAVA_STATEMENT" value="true" />
+      <option name="JAVA_EXPRESSION" value="false" />
+      <option name="JAVA_DECLARATION" value="true" />
+      <option name="JAVA_COMMENT" value="false" />
+      <option name="JAVA_STRING" value="true" />
+      <option name="COMPLETION" value="true" />
+    </context>
+  </template>
+  <template name="impl" value="// IMPLEMENT: $NAME$&#10;$END$" description="IMPLEMENT" toReformat="true" toShortenFQNames="true">
+    <variable name="NAME" expression="methodName()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+      <option name="JAVA_STATEMENT" value="true" />
+      <option name="JAVA_EXPRESSION" value="false" />
+      <option name="JAVA_DECLARATION" value="true" />
+      <option name="JAVA_COMMENT" value="false" />
+      <option name="JAVA_STRING" value="true" />
+      <option name="COMPLETION" value="true" />
+    </context>
+  </template>
+  <template name="idea" value="// IDEA: $TEXT$&#10;$END$" description="IDEA" toReformat="true" toShortenFQNames="true">
+    <variable name="TEXT" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+      <option name="JAVA_STATEMENT" value="true" />
+      <option name="JAVA_EXPRESSION" value="false" />
+      <option name="JAVA_DECLARATION" value="true" />
+      <option name="JAVA_COMMENT" value="false" />
+      <option name="JAVA_STRING" value="true" />
+      <option name="COMPLETION" value="true" />
+    </context>
+  </template>
+  <template name="listeners" value="private final List&lt;$LISTENERTYPE$&gt; $LISTENERS$ = new ArrayList&lt;$LISTENERTYPE$&gt;(4);&#10;&#10;/**&#10; * @param listener listener to notify about $TASK$. &#10; */&#10;public final void add$METHODNAME$($LISTENERTYPE$ listener) {&#10;    Check.notNull(listener, &quot;listener&quot;);&#10;    if ($LISTENERS$.contains(listener)) throw new IllegalArgumentException(&quot;The $LISTENERTYPE$ has already been added as a listener, can't add it twice&quot;);&#10;    &#10;    $LISTENERS$.add(listener);&#10;}&#10;&#10;/**&#10; * @param listener listener to remove.&#10; */&#10;public final void remove$METHODNAME$($LISTENERTYPE$ listener) {&#10;    $LISTENERS$.remove(listener);&#10;}&#10;&#10;/**&#10; * Notifies $LISTENERS$&#10; */&#10;protected final void notifyListeners() {&#10;    for ($LISTENERTYPE$ listener : $LISTENERS$) {&#10;        listener.&#10;    }&#10;}&#10;" description="Add listeners" toReformat="false" toShortenFQNames="true" useStaticImport="true">
+    <variable name="LISTENERTYPE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="LISTENERS" expression="suggestVariableName()" defaultValue="&quot;listeners&quot;" alwaysStopAt="true" />
+    <variable name="METHODNAME" expression="&quot;Listener&quot;" defaultValue="&quot;Listener&quot;" alwaysStopAt="true" />
+    <variable name="TASK" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="lazylisteners" value="private ArrayList&lt;$LISTENERTYPE$&gt; $LISTENERS$ = null;&#10;&#10;/**&#10; * @param listener listener to notify about $TASK$. &#10; */&#10;public final void add$METHODNAME$($LISTENERTYPE$ listener) {&#10;    Check.notNull(listener, &quot;listener&quot;);&#10;    if ($LISTENERS$ != null &amp;&amp; $LISTENERS$.contains(listener)) throw new IllegalArgumentException(&quot;The $LISTENERTYPE$ has already been added as a listener, can't add it twice&quot;);&#10;    &#10;    if ($LISTENERS$ == null) {&#10;        $LISTENERS$ = new ArrayList&lt;$LISTENERTYPE$&gt;(4);&#10;    }&#10;    &#10;    $LISTENERS$.add(listener);&#10;}&#10;&#10;/**&#10; * @param listener listener to remove.&#10; */&#10;public final void remove$METHODNAME$($LISTENERTYPE$ listener) {&#10;    if ($LISTENERS$ != null) {&#10;        $LISTENERS$.remove(listener);&#10;    }&#10;}&#10;&#10;/**&#10; * Notifies $LISTENERS$  &#10; */&#10;protected final void notifyListeners() {&#10;    if ($LISTENERS$ != null) {&#10;        for ($LISTENERTYPE$ listener : $LISTENERS$) {&#10;            listener.&#10;        }&#10;    }&#10;}&#10;" description="Add lazy listeners" toReformat="true" toShortenFQNames="true" useStaticImport="true">
+    <variable name="LISTENERTYPE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="LISTENERS" expression="suggestVariableName()" defaultValue="&quot;listeners&quot;" alwaysStopAt="true" />
+    <variable name="METHODNAME" expression="&quot;Listener&quot;" defaultValue="&quot;Listener&quot;" alwaysStopAt="true" />
+    <variable name="TASK" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="add" value="/**&#10; * @param $ELEMENT$ $DESC$ to add. &#10; */&#10;public final void add$METHODNAME$($TYPE$ $ELEMENT1$) {&#10;    Check.notNull($ELEMENT$, &quot;$ELEMENT$&quot;);&#10;    Check.notContained($ELEMENT$, $ELEMENTS$, &quot;$ELEMENTS$&quot;);&#10;&#10;    $ELEMENTS1$.add($ELEMENT$);&#10;}&#10;&#10;" description="Add something to a collection" toReformat="false" toShortenFQNames="true" useStaticImport="true">
+    <variable name="ELEMENTS1" expression="iterableVariable()" defaultValue="" alwaysStopAt="true" />
+    <variable name="TYPE" expression="guessElementType(ELEMENTS1)" defaultValue="" alwaysStopAt="false" />
+    <variable name="ELEMENT1" expression="suggestVariableName()" defaultValue="" alwaysStopAt="true" />
+    <variable name="ELEMENT" expression="ELEMENT1" defaultValue="" alwaysStopAt="false" />
+    <variable name="ELEMENTS" expression="ELEMENTS1" defaultValue="" alwaysStopAt="false" />
+    <variable name="METHODNAME" expression="capitalize(ELEMENT)" defaultValue="" alwaysStopAt="true" />
+    <variable name="DESC" expression="capitalize(ELEMENT)" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="remove" value="/**&#10; * @param $ELEMENT$ $DESC$ to remove. &#10; */&#10;public final void remove$METHODNAME$($TYPE$ $ELEMENT1$) {&#10;    if ($ELEMENTS$ != null) {&#10;        $ELEMENTS1$.remove($ELEMENT$);&#10;    }&#10;}&#10;&#10;" description="Remove something from a collection" toReformat="false" toShortenFQNames="true" useStaticImport="true">
+    <variable name="ELEMENTS1" expression="iterableVariable()" defaultValue="" alwaysStopAt="true" />
+    <variable name="TYPE" expression="guessElementType(ELEMENTS1)" defaultValue="" alwaysStopAt="false" />
+    <variable name="ELEMENT1" expression="suggestVariableName()" defaultValue="" alwaysStopAt="true" />
+    <variable name="ELEMENT" expression="ELEMENT1" defaultValue="" alwaysStopAt="false" />
+    <variable name="ELEMENTS" expression="ELEMENTS1" defaultValue="" alwaysStopAt="false" />
+    <variable name="METHODNAME" expression="capitalize(ELEMENT)" defaultValue="" alwaysStopAt="true" />
+    <variable name="DESC" expression="capitalize(ELEMENT)" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+</templateSet>
